@@ -39,7 +39,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, index=True, unique=True)
-    password = Column(String)  # Make sure you have this column
+    password = Column(String)  
 
     files = relationship("File", back_populates="owner")
 
@@ -49,7 +49,7 @@ class File(Base):
     id = Column(Integer, primary_key=True, index=True)
     filename = Column(String, index=True)
     original_filename = Column(String)
-    expiry_date = Column(DateTime, nullable=True)  # New column for expiry date
+    expiry_date = Column(DateTime, nullable=True)  
     owner_id = Column(Integer, ForeignKey("users.id"))
     
     owner = relationship("User", back_populates="files")
@@ -71,7 +71,7 @@ class FileBase(BaseModel):
 class UserCreate(BaseModel):
     username: str
     password: str
-# Create tables in the specified order
+
 
 Base.metadata.create_all(bind=engine, tables=[User.__table__, File.__table__])
 
@@ -103,7 +103,7 @@ class Password:
 
 password_handler = Password()
 
-# main.py
+
 
 def create_token(data: dict, expires_delta: timedelta = None):  # Use timedelta
     to_encode = data.copy()
@@ -201,14 +201,10 @@ UPLOAD_FOLDER = "C:\\src\\FASTapi\\folder"
 def upload_file_route(
     file: UploadFile = UploadFile(...),
     expiry_date: datetime = Form(...),
-    current_user: User = Depends(get_current_user),  # Include the token as a parameter
+    current_user: User = Depends(get_current_user),  
     db: Session = Depends(get_db)
 ):
-      # Print the token for debugging
-
-    # Validate the token and obtain the current user
-    
-    # Print the current user for debugging
+      
     try:
         expiry_minutes = int(expiry_date.timestamp() - datetime.utcnow().timestamp()) / 60
     except ValueError:
@@ -223,7 +219,7 @@ def upload_file_route(
     logging.info("Saving file to path: %s", file_path)
     
 
-    # Save the file to the server (you might want to use a unique code for the filename)
+    
     with open(file_path, "wb") as f:
         f.write(file.file.read())
 
