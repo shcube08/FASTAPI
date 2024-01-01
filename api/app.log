@@ -1,0 +1,3 @@
+2024-01-01 20:25:04,997 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-01-01 20:25:04,997 - INFO - Added job "delete_expired_files" to job store "default"
+2024-01-01 20:25:04,997 - INFO - Scheduler started
