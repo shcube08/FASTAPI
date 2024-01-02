@@ -25,5 +25,4 @@ Tools and Tech
 - Pytest as the testing framework
 - Deploy the entire app on Digital Ocean.
 - Use a logging framework to log all the errors and warnings.
-![image](https://github.com/shcube08/FASTAPI/assets/44604254/f006d398-0069-4893-ad10-f6d0c1f49706)
 
