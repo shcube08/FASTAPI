@@ -2,7 +2,7 @@
 fire sharing application
 http://34.16.176.212:8000/docs#/
 
-Introduction
+
 Build a simple file sharing web application. The application must allow users to upload and download files with each other.
 Specifications
 - Users can register and login to the application.
