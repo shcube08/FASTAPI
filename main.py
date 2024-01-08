@@ -136,9 +136,13 @@ def start_scheduler():
 
 # Registration endpoint
 @app.post("/register")
-def register(user_create: UserCreate, db: Session = Depends(get_db)):
-    hashed_password = password_handler.hash(user_create.password)
-    db_user = User(username=user_create.username, password=hashed_password)
+def register(
+    username: str = Form(...),
+    password: str = Form(...),
+    db: Session = Depends(get_db)
+):
+    hashed_password = password_handler.hash(password)
+    db_user = User(username=username, password=hashed_password)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
