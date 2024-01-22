@@ -1,6 +1,6 @@
 # FASTAPI
 fire sharing application
-http://34.16.176.212:8000/docs#/
+http://34.16.202.95:8000/docs#/
 
 
 Build a simple file sharing web application. The application must allow users to upload and download files with each other.
